@@ -1,0 +1,16 @@
+name = "xeno-data-sync"
+client_id = "88a9f639c28d80aeb07e1186e808eb3d"
+application_url = "http://localhost:3000"
+embedded = false
+
+[access_scopes]
+
+scopes = "read_customers,read_orders,read_products,read_inventory"
+
+[auth]
+redirect_urls = [
+  "http://localhost:3000/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
