@@ -618,21 +618,9 @@ Handles order creation webhook from Shopify.
 
 ---
 
-## 👤 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-
----
-
 ## 🙏 Acknowledgments
 
 - [Shopify](https://shopify.dev) for comprehensive API documentation
 - [Prisma](https://prisma.io) for excellent ORM tooling
 - [Next.js](https://nextjs.org) for the amazing framework
 - [Xeno](https://getxeno.com) for the internship opportunity
-
----
-
-**Built with ❤️ for the Xeno FDE Internship 2025**
