@@ -1,22 +1,17 @@
+import { shopifyApi, ApiVersion } from '@shopify/shopify-api';
 import '@shopify/shopify-api/adapters/node';
-import {shopifyApi, ApiVersion, Session} from '@shopify/shopify-api';
+
+if (!process.env.SHOPIFY_API_KEY || !process.env.SHOPIFY_API_SECRET) {
+  throw new Error('Missing Shopify API credentials');
+}
 
 export const shopify = shopifyApi({
-    apiKey: process.env.SHOPIFY_API_KEY!,
-    apiSecretKey: process.env.SHOPIFY_API_SECRET!,
-    scopes: process.env.SHOPIFY_API_SCOPES!.split(',') || [],
-    hostName: process.env.SHOPIFY_APP_URL?.replace(/https?:\/\//, '') || 'localhost:3000',
-    hostScheme: 'http',
-    apiVersion: ApiVersion.October24,
-    isEmbeddedApp: false,
+  apiKey: process.env.SHOPIFY_API_KEY,
+  apiSecretKey: process.env.SHOPIFY_API_SECRET,
+  scopes: (process.env.SHOPIFY_SCOPES || 'read_customers,read_orders,read_products').split(','),
+  hostName: 'localhost:3000',
+  hostScheme: 'http',
+  apiVersion: ApiVersion.October24,
+  isEmbeddedApp: false,
+  isCustomStoreApp: false,
 });
-
-export function createShopifySession(shop: string, accessToken: string): Session {
-    return new Session({
-        id: `offline_${shop}`,
-        shop,
-        state: 'offline',
-        isOnline: false,
-        accessToken,
-    });
-}
